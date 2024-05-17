@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+    <!-- Definitions -->
+    <define>
+            <!-- Default Origin and Rotation -->
+        <position name="origin" x="0" y="0" z="0"/>
+        <rotation name="noRotation" z="0"/>
+        <rotation name="rotate90Z" unit="deg" x="0" y="0" z="90"/>
+        <rotation name="rotate90X" unit="deg" x="90" y="0" z="0"/>
+        <rotation name="rotate90Y" unit="deg" x="0" y="90" z="0"/>
+
+        <!-- World Dimensions -->
+        <quantity name="worldX" type="length" value="2" unit="m" />
+        <quantity name="worldY" type="length" value="2" unit="m" />
+        <quantity name="worldZ" type="length" value="2" unit="m" />
+
+        <!-- LeadBrick Dimensions -->
+        <quantity name="leadBrickX" type="length" value="177.8" unit="mm" />
+        <quantity name="leadBrickY" type="length" value="45" unit="mm" />
+        <quantity name="leadBrickZ" type="length" value="260" unit="mm" />
+
+        <quantity name="leadBrickX3" type="length" value="170" unit="mm" />
+        <quantity name="leadBrickY3" type="length" value="44.5" unit="mm" />
+        <quantity name="leadBrickZ3" type="length" value="190" unit="mm" />
+
+        <quantity name="leadBrickX4" type="length" value="98.7" unit="mm" />
+        <quantity name="leadBrickY4" type="length" value="44.45" unit="mm" />
+        <quantity name="leadBrickZ4" type="length" value="260" unit="mm" />
+
+        <!-- Collimator Dimensions -->
+        <quantity name="collimatorX" type="length" value="63.5" unit="mm" />
+        <quantity name="collimatorY" type="length" value="63.5" unit="mm" />
+        <quantity name="collimatorZ" type="length" value="63.5" unit="mm" />
+        <rotation name="rotateCollimator" unit="deg" x="90" y="0" z="90"/>
+
+        <!-- Cryostat Dimensions -->
+        <quantity name="cryostatRmin" type="length" value="0" unit="mm" />
+        <quantity name="cryostatRmax" type="length" value="48.9585" unit="mm" />
+        <quantity name="cryostatZ" type="length" value="192.151" unit="mm" />
+
+        <!-- Cavity Dimensions -->
+        <quantity name="cavityRmax" type="length" value="47.4345" unit="mm" />
+        <quantity name="cavityRmin" type="length" value="0" unit="mm" />
+        <quantity name="cavityZ" type="length" value="181.356" unit="mm" />
+
+        <!-- Radioactive Source Dimensions -->
+        <quantity name="sourceRadius" type="length" value="25.4" unit="mm" />
+        <quantity name="sourceHeight" type="length" value="6.35" unit="mm" />
+        
+        <!-- Position Definitions -->
+
+        <!-- <position name="collimatorPosition" x="0" y="-79.375" z="0" unit="mm"/> -->
+        <!-- <position name="sourcePosition" x="0" y="-111.125" z="0" unit="mm"/> -->
+
+        <position name="sourcePosition" x="0" y="0" z="100" unit="mm"/>
+        <position name="leadBrickPosition1" x="-71.85" y="0" z="0" unit="mm"/>
+        <position name="leadBrickPosition2" x="71.85" y="0" z="0" unit="mm"/>
+        <position name="leadBrickPosition3" x="0" y="0" z="150" unit="mm"/>
+        <position name="leadBrickPosition4" x="0" y="71.85" z="0" unit="mm"/>
+        <position name="leadBrickPosition5" x="0" y="-71.85" z="0" unit="mm"/>
+
+
+        <!-- Rotation Definitions -->
+        <rotation name="rotateleadBrick" unit="deg" x="0" y="0" z="90"/>
+        <rotation name="rotateleadBrick3" unit="deg" x="90" y="0" z="0"/>
+        <rotation name="rotateleadBrick4" unit="deg" x="0" y="0" z="0"/>
+
+        <rotation name="rotateCollimator" unit="deg" x="90" y="0" z="90"/>
+        <!-- <rotation name="rotateSource" unit="deg" x="90" y="0" z="90"/> -->
+        <rotation name="rotateSource" unit="deg" x="0" y="0" z="0"/>
+        <rotation name="noRotation" unit="deg" x="0" y="0" z="0"/>
+        
+        <!-- Detector V06649A Definitions -->
+        <constant name="TWOPI" value="2.*pi"/>
+        <quantity name="detector_height" type="length" value="96.0" unit="mm"/>
+        <quantity name="detector_radius" type="length" value="40.45" unit="mm"/>
+        <quantity name="well_height" type="length" value="69.9" unit="mm"/>
+        <quantity name="well_radius" type="length" value="5.0" unit="mm"/>
+        <quantity name="groove_height" type="length" value="98" unit="mm"/>
+        <quantity name="groove_inner_radius" type="length" value="11.0" unit="mm"/>
+        <quantity name="groove_outer_radius" type="length" value="14.0" unit="mm"/>
+        <quantity name="taper_inner_height" type="length" value="35.0" unit="mm"/>
+        <quantity name="taper_inner_width" type="length" value="7.9" unit="mm"/>
+        <rotation name="rotateDet" unit="deg" x="0" y="180" z="0"/>
+        <position name="detectorPosition" x="0" y="0" z="80" unit="mm"/>
+    </define>
+<!-- 
+        <constant name="TWOPI" value="2.*pi"/>
+        <quantity name="detector_height" type="length" value="65.2" unit="mm"/>
+        <quantity name="detector_radius" type="length" value="40.1" unit="mm"/>
+        <quantity name="well_height" type="length" value="49.0" unit="mm"/>
+        <quantity name="well_radius" type="length" value="4.0" unit="mm"/>
+        <quantity name="groove_height" type="length" value="63.2" unit="mm"/>
+        <quantity name="groove_inner_radius" type="length" value="15.0" unit="mm"/>
+        <quantity name="groove_outer_radius" type="length" value="18.0" unit="mm"/>
+        <quantity name="taper_inner_height" type="length" value="45.0" unit="mm"/>
+        <quantity name="taper_inner_width" type="length" value="7.9" unit="mm"/>
+        <rotation name="rotateDet" unit="deg" x="0" y="180" z="0"/>
+        <position name="detectorPosition" x="0" y="0" z="80" unit="mm"/> -->
+
+    <!-- Materials -->
+    <materials/>
+    
+    <!-- Solid Definitions -->
+    <solids>
+        <box name="worldSolid" x="worldX" y="worldY" z="worldZ"/>
+        <box name="leadBrickSolid" x="leadBrickX" y="leadBrickY" z="leadBrickZ"/>
+        <box name="leadBrickSolid3" x="leadBrickX3" y="leadBrickY3" z="leadBrickZ3"/>
+        <box name="leadBrickSolid4" x="leadBrickX4" y="leadBrickY4" z="leadBrickZ4"/>
+
+        <tube name="cryostatSolid" rmin="cryostatRmin" rmax="cryostatRmax" z="cryostatZ" startphi="0" deltaphi="2*pi"/> 
+        <box name="collimatorSolid" x="collimatorX" y="collimatorY" z="collimatorZ"/> 
+        <tube name="slitTubeSolid" rmin="0" rmax="0.5" z="collimatorZ" startphi="0" deltaphi="2*pi"/>
+        <subtraction name="collimatorWithSlit">
+            <first ref="collimatorSolid"/>
+            <second ref="slitTubeSolid"/>
+            <positionref ref="origin"/>
+            <rotationref ref="noRotation"/>
+        </subtraction>
+        <tube name="sourceSolid" rmin="0" rmax="sourceRadius" z="sourceHeight" deltaphi="2*pi"/>
+        <tube name="cavity_cyl" rmin="cavityRmin" rmax="cavityRmax" z="cavityZ" startphi="0" deltaphi="360"/>
+        <genericPolycone name="detector" startphi="0" deltaphi="TWOPI" aunit="rad">
+            <rzpoint r="well_radius" z="taper_inner_height"/>
+            <rzpoint r="taper_inner_width" z="0"/>
+            <rzpoint r="detector_radius" z="0"/>
+            <rzpoint r="detector_radius" z="detector_height"/>
+            <rzpoint r="groove_outer_radius" z="detector_height"/>
+            <rzpoint r="groove_outer_radius" z="groove_height"/>
+            <rzpoint r="groove_inner_radius" z="groove_height"/>
+            <rzpoint r="groove_inner_radius" z="detector_height"/>
+            <rzpoint r="0" z="detector_height"/>
+            <rzpoint r="0" z="well_height"/>
+            <rzpoint r="well_radius" z="well_height"/>
+        </genericPolycone>
+    </solids>
+
+
+        <!-- Logical Volume Definitions -->
+   <structure>
+    <volume name="geDetector">
+        <materialref ref="G4_Ge"/>
+        <solidref ref="detector"/>
+    </volume>
+
+    <volume name="cavity">
+        <materialref ref="G4_AIR"/>
+        <solidref ref="cavity_cyl"/>
+            <physvol>
+                <volumeref ref="geDetector"/>
+                <positionref ref="detectorPosition"/>
+                <rotationref ref="rotateDet"/>
+            </physvol>
+    </volume>
+
+    <volume name="cryostat">
+        <materialref ref="G4_Al"/>
+        <solidref ref="cryostatSolid"/>
+        <physvol>
+            <volumeref ref="cavity"/>
+            <positionref ref="origin"/>
+            <rotationref ref="noRotation"/>
+        </physvol>
+    </volume>
+    
+    <volume name="leadBrick">
+        <materialref ref="G4_Pb"/>
+        <solidref ref="leadBrickSolid"/>
+    </volume>
+
+    <volume name="leadBrick">
+        <materialref ref="G4_Pb"/>
+        <solidref ref="leadBrickSolid"/>
+    </volume>
+
+    <volume name="leadBrick3">
+        <materialref ref="G4_Pb"/>
+        <solidref ref="leadBrickSolid3"/>
+    </volume>
+
+    <volume name="leadBrick4">
+        <materialref ref="G4_Pb"/>
+        <solidref ref="leadBrickSolid4"/>
+    </volume>
+
+    <volume name="leadBrick4">
+        <materialref ref="G4_Pb"/>
+        <solidref ref="leadBrickSolid4"/>
+    </volume>
+
+    <volume name="collimator">
+        <materialref ref="G4_Cu"/>
+        <solidref ref="collimatorWithSlit"/>
+    </volume>
+
+    <volume name="source">
+        <materialref ref="G4_PLASTIC_SC_VINYLTOLUENE"/>
+        <solidref ref="sourceSolid"/>
+    </volume>
+
+    <volume name="world">
+        <materialref ref="G4_Galactic"/>
+        <solidref ref="worldSolid"/> 
+
+        <physvol>
+            <volumeref ref="leadBrick"/>
+            <positionref ref="leadBrickPosition1"/>
+            <rotationref ref="rotateleadBrick"/>
+        </physvol>
+        
+        <physvol>
+            <volumeref ref="leadBrick"/>
+            <positionref ref="leadBrickPosition2"/>
+            <rotationref ref="rotateleadBrick"/>
+        </physvol>
+
+        <physvol>
+            <volumeref ref="leadBrick3"/>
+            <positionref ref="leadBrickPosition3"/>
+            <rotationref ref="rotateleadBrick3"/>
+        </physvol> 
+        <physvol>
+            <volumeref ref="leadBrick4"/>
+            <positionref ref="leadBrickPosition4"/>
+            <rotationref ref="rotateleadBrick4"/>
+        </physvol> 
+
+        <physvol>
+            <volumeref ref="leadBrick4"/>
+            <positionref ref="leadBrickPosition5"/>
+            <rotationref ref="rotateleadBrick4"/>
+        </physvol>
+    
+        
+        <!-- <physvol>
+            <volumeref ref="collimator"/>
+            <positionref ref="collimatorPosition"/>
+            <rotationref ref="rotateCollimator"/>
+        </physvol> -->
+        
+        <physvol>
+            <volumeref ref="cryostat"/>
+            <positionref ref="origin"/>
+            <rotationref ref="noRotation"/>
+        </physvol>
+        
+        <physvol>
+            <volumeref ref="source"/>
+            <positionref ref="sourcePosition"/>
+            <rotationref ref="rotateSource"/>
+        </physvol>
+    </volume>
+
+</structure>
+
+
+    <!-- Setup -->
+    <setup name="Default" version="1.0">
+        <world ref="world"/>
+    </setup>
+</gdml>
