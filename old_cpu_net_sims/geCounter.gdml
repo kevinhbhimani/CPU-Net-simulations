@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<!--
+  Dimenstions of MJD prototype cryostat:
+Outer width=1.92 mm
+Inner width=1.15 mm
+Diameter=31.1 cm
+Height=41.5 cm 
+depth to detector top=3.81 cm 
+Height of dtector=3cm
+world vlume copper cylind then vaccumm volume and then things 
+Placed detecto off cold plate Thorium 228
+z location of detector center = 41.19/2 -(3.81+3) +3/2 =15.29
+-->
+  <define>
+    <quantity name="worldR" type="length" value="100" unit="m" />
+
+    <quantity name="cavity_r" type="length" value="15.243" unit="cm" />
+    <quantity name="cavity_h" type="length" value="41.193" unit="cm" />
+
+    <quantity name="shield_r" type="length" value="15.55" unit="cm" />
+    <quantity name="shield_h" type="length" value="41.5" unit="cm" />
+
+    <quantity name="geR" type="length" value="35" unit="mm" />
+    <quantity name="geH" type="length" value="30" unit="mm" />
+    <position name="detPos" unit="cm" x="0" y="0" z="15.29"/>
+
+    <quantity name="sourceR" type="length" value="2.4" unit="cm" />
+    <quantity name="sourceH" type="length" value="0.25" unit="cm" />
+    <position name="sourcePos" unit="cm" x="17" y="0" z="0"/>
+
+    <position name="origin" x="0" y="0" z="0"/>
+    <rotation name="noRotation" z="0"/>
+    <rotation name="Rotate_source"  y="90"   unit="deg" />
+
+
+  </define>
+
+  <materials/>
+
+  <solids>
+    <orb name="worldSphere" r="worldR"/>
+    <tube name="shieldBox" rmax="shield_r" z="shield_h" deltaphi="2*pi"/>
+    <tube name="cavityBox" rmax="cavity_r" z="cavity_h" deltaphi="2*pi"/>
+    <tube name="geCyl" rmax="geR" z="geH" deltaphi="2*pi"/>
+    <tube name="sourceCyl" rmax="sourceR" z="sourceH" deltaphi="2*pi"/>
+  </solids>
+
+
+  <structure>
+    <volume name="geDetector">
+      <materialref ref="G4_Ge"/>
+      <solidref ref="geCyl"/>
+    </volume>
+
+    <volume name="cavity">
+      <materialref ref="G4_AIR"/>
+      <solidref ref="cavityBox"/>
+      <physvol>
+        <volumeref ref="geDetector"/>
+        <positionref ref="detPos"/>
+        <rotationref ref="noRotation"/>
+      </physvol>
+    </volume>
+    <volume name="shield">
+      <materialref ref="G4_Cu"/>
+      <solidref ref="shieldBox"/>
+      <physvol>
+        <volumeref ref="cavity"/>
+        <positionref ref="origin"/>
+        <rotationref ref="noRotation"/>
+      </physvol>
+    </volume>
+
+     <volume name="source">
+      <materialref ref="G4_STAINLESS-STEEL"/>
+      <solidref ref="sourceCyl"/>
+    </volume>
+
+    <volume name="world">
+      <materialref ref="G4_Galactic"/>
+      <solidref ref="worldSphere"/>
+      <physvol>
+        <volumeref ref="shield"/>
+        <positionref ref="origin"/>
+        <rotationref ref="noRotation"/>
+      </physvol>
+
+       <physvol>
+        <volumeref ref="source"/>
+        <positionref ref="sourcePos"/>
+			 <rotationref ref="Rotate_source" />
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="world"/>
+  </setup>
+
+
+</gdml>

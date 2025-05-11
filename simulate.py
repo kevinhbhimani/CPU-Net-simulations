@@ -3,11 +3,11 @@ import numpy as np
 import subprocess
 import os
 import struct
-from tools import process_run_csv  # Ensure this function is properly defined to handle CSV processing.
+from tools import process_run_csv
 
 # Specify your runs and file paths.
 run_start = 15
-run_end = 20  # Adjust as per your actual number of runs.
+run_end = 20 
 base_directory = "/work/users/k/b/kbhimani/cpu_net_g4sims/data_ornl/"
 base_filename = "data_run_{}.csv"
 offset = 1000000 + 1

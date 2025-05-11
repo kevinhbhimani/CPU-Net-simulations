@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# Perlmutter cluster job slurm submission script            
+# execute as:                                           
+# check job detail: jobstats or scontrol show job <JobID>  or squeue --job 37985561  <JobID> or sqs                 
+#--------------------------------------------------------------------------      
+#            
+#SBATCH --job-name=khb-g4-sim-post_proc
+#                                                                                             
+# directories to put log files ... so you know what is happening to your jobs   
+#                                                                  
+#SBATCH --output=/global/homes/k/kbhimani/cpu_net_sims/logs/job_log_.sh.o%j       
+#SBATCH --error=/global/homes/k/kbhimani/cpu_net_sims/logs/job_error_log_.sh.o%j     
+# SBATCH --account=majorana
+#SBATCH --qos=regular
+#SBATCH --time=5:30:00 
+#SBATCH --constraint=cpu
+# uncomment the lines below to get email notification about your job                       
+#SBATCH --mail-type=begin,end,fail
+#SBATCH --mail-user=kevin_bhimani@unc.edu
+#---------------------------------------------------------------------------   
+#!/bin/bash
+
+shifter --image docker:legendexp/legend-software:latest /bin/bash /global/homes/k/kbhimani/cpu_net_sims/set_run_clust.sh

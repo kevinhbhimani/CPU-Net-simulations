@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# Perlmutter cluster job slurm submission script            
+# execute as:                                           
+# check job detail: jobstats or scontrol show job <JobID>  or squeue --job 37985561  <JobID> or sqs                 
+#--------------------------------------------------------------------------      
+#            
+#SBATCH --job-name=khb-g4-sim
+#                                                                                             
+# directories to put log files ... so you know what is happening to your jobs   
+#                                                                  
+#SBATCH --output=/nas/longleaf/home/kbhimani/cpu_net_sims/logs/job_log_.sh.o%j       
+#SBATCH --error=/nas/longleaf/home/kbhimani/cpu_net_sims/job_error_log_.sh.o%j     
+#SBATCH --qos=regular
+#SBATCH --time=11-00:00:00                                       
+# uncomment the lines below to get email notification about your job                       
+#SBATCH --mail-type=begin,end,fail
+#SBATCH --mail-user=kevin_bhimani@unc.edu
+#---------------------------------------------------------------------------   
+#!/bin/bash
+
+apptainer run /proj/enap/containers/legend-software_latest.sif /bin/bash /nas/longleaf/home/kbhimani/cpu_net_sims/set_run.sh
